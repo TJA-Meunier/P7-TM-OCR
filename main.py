@@ -6,31 +6,28 @@ import xgboost as xgb
 from xgboost import XGBClassifier
 import lime
 import lime.lime_tabular
-import pickle
 import joblib
 from joblib import dump, load
-
-
 import streamlit as st
+
+
 
 # --------------------------------------------------------------
 # -------- Importation des données et modèles ------------------
 # --------------------------------------------------------------
 
 # Charger les données
-X_train = pd.read_csv("X_train.csv", sep=',').head(20)
+X_train = pd.read_csv("X_train20.csv", sep=',').head(20)
 X_train = X_train.drop('Unnamed: 0', axis=1)
 
-y_train = pd.read_csv("y_train.csv", sep=',').head(20)
+y_train = pd.read_csv("y_train20.csv", sep=',').head(20)
 y_train = y_train.drop('Unnamed: 0', axis=1)
 
-X_test = pd.read_csv("X_test.csv", sep=',').head(20)
+X_test = pd.read_csv("X_test20.csv", sep=',').head(20)
 X_test = X_test.drop('Unnamed: 0', axis=1)
 
 # Faire sortir les variables les plus importantes
 #model = XGBClassifier()
-
-#model = pickle.load(open("model.pkl", "rb"))
 
 #model = xgb.Booster()
 #model.load_model("model.bin")
