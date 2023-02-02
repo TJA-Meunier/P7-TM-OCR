@@ -11,7 +11,7 @@ from joblib import dump, load
 import streamlit as st
 
 # lien du dashboard sur internet :
-# https://p7-tm-app.herokuapp.com/
+# https://p7-app.herokuapp.com/
 
 # --------------------------------------------------------------
 # -------- Importation des données et modèles ------------------
