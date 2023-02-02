@@ -10,7 +10,8 @@ import joblib
 from joblib import dump, load
 import streamlit as st
 
-
+# lien du dashboard sur internet :
+# https://p7-app-ocr.herokuapp.com/
 
 # --------------------------------------------------------------
 # -------- Importation des données et modèles ------------------
@@ -26,15 +27,8 @@ y_train = y_train.drop('Unnamed: 0', axis=1)
 X_test = pd.read_csv("X_test20.csv", sep=',').head(20)
 X_test = X_test.drop('Unnamed: 0', axis=1)
 
-# Faire sortir les variables les plus importantes
-#model = XGBClassifier()
-
-#model = xgb.Booster()
-#model.load_model("model.bin")
-
+# Charger le modèle
 model = joblib.load('model.joblib')
-# fit the model
-#model.fit(X_train, y_train)
 
 # --------------------------------------------------------------
 # -------------------- Début API -------------------------------
@@ -109,7 +103,7 @@ else:
     st.write("Données client")
     st.write(df_client)
 
-    st.subheader("Faut-il accepté le crédit pour ce client ?")
+    st.subheader("Faut-il accepter le crédit pour ce client ?")
     st.write("0 = Credit Accepté - 1 = Credit Refusé")
 
     proba = model.predict_proba(df_client)[0][1]
